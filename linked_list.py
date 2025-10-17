@@ -31,7 +31,7 @@ class LinkedList:
     # head = None
 
     def insert_at_beginning(self, value):
-        new_node= Node(value)
+        new_node = Node(value)
         if self.head is None:
             self.head = new_node
         else:
@@ -40,7 +40,7 @@ class LinkedList:
             self.head = new_node
 
     def insert_at_end(self, value):
-        new_node= Node(value)
+        new_node = Node(value)
         if self.head is None:
             self.head = new_node
         else:
@@ -72,20 +72,21 @@ class LinkedList:
             previous.next = current.next
             current.next = None
             print(f"item {value} deleted")
-        self.display()
+        # self.display()
 
-    def search(self, node):
+    def search(self, value):
         if self.head is None:
             print("List is empty")
         else:
             current = self.head
-            while current is not None:
-                if current == node.value:
-                    print(current.value==node.value)
+            while current.next is not None:
+                if current.value == value:
+                    # print(current.value == value)
+                    break
+                else:
                     current = current.next
-            
-
-
+                   
+            return (current.value == value)
 
     def display(self):
         if self.head is None:
@@ -100,23 +101,36 @@ class LinkedList:
 
 linked_list = LinkedList()
 
-linked_list.insert_at_end(15)
-# linked_list.insert_at_end(Node(47))
-# linked_list.insert_at_end(Node(94))
-# linked_list.insert_at_end(Node(51))
-# linked_list.insert_at_end(Node(3))
+linked_list.insert_at_end(10)
+linked_list.insert_at_end(20)
+linked_list.insert_at_beginning(5)
+linked_list.display()
+
+linked_list.delete_value(10)
+linked_list.display()
+
+print(linked_list.search(20))
+
+print(linked_list.search(50))
+
+# linked_list.insert_at_end(15)
+# linked_list.insert_at_end(47)
+# linked_list.insert_at_end(94)
+# linked_list.insert_at_end(51)
+# linked_list.insert_at_end(3)
+
+# # linked_list.display()
+
+# linked_list.insert_at_beginning(25)
+# # linked_list.display()
+# linked_list.insert_at_beginning(64)
 
 # linked_list.display()
 
-linked_list.insert_at_beginning(25)
-linked_list.insert_at_beginning(64)
-
-linked_list.display()
-
-
-linked_list.delete_value(64)
+# 
+# linked_list.delete_value(64)
 # linked_list.delete_value(3)
-linked_list.delete_value(25)
+# linked_list.delete_value(25)
 # linked_list.delete_value(94)
 # linked_list.delete_value(15)
 # linked_list.delete_value(47)
@@ -125,4 +139,9 @@ linked_list.delete_value(25)
 # linked_list.delete_value(22)
 
 
-linked_list.display()
+# linked_list.display()
+
+# linked_list.search(15)
+# linked_list.search(25)
+# linked_list.search(15)
+# linked_list.search(88)
